@@ -1,6 +1,6 @@
-const { Book, User } = require('../models');
+const { Book, User } = require('../models'); 
 
-const resolvers = { 
+const resolvers = {  
     Query: {
         book: async (parent, { _id }) => {
             const params = _id ? { _id } : {};
@@ -15,6 +15,11 @@ const resolvers = {
             const newBook = await Book.create(args);
             return newBook;
         },
+
+        createUser: async(parent, args) => {
+            const newUser = await User.create(args);
+            return newUser;
+        }
     },
 };
 
