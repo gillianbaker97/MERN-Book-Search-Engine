@@ -11,14 +11,19 @@ const resolvers = {
         },
     },
     Mutation: {
-        createBook: async (parent, args) => {
-            const newBook = await Book.create(args);
+        addUser: async (parent, args) => {
+            const newUser = await User.create(args);
+            return newUser;
+        },
+
+        saveBook: async(parent, args) => {
+            const newBook = await Book.save(args);
             return newBook;
         },
 
-        createUser: async(parent, args) => {
-            const newUser = await User.create(args);
-            return newUser;
+        removeBook: async(parent, args) => {
+            const noBook = await Book.deleteOne(args);
+            return noBook;
         }
     },
 };
