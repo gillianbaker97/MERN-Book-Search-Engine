@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_BOOK } from '../utils/mutations';
-import { QUERY_USER } from '../utils/mutations';
+import { SAVE_BOOK} from '../utils/mutations';
 
 
 const FindBook = () => {
@@ -18,7 +18,7 @@ const FindBook = () => {
     title: 'JavaScript',
   });
   let history = useHistory();
-  const [createFindBook, { error }] = useMutation(CREATE_BOOK);
+  const [saveFindBook, { error }] = useMutation(SAVE_BOOK);
 
   const handleInputChange = (event) => {
     const{ name, value } = event.target;
@@ -29,7 +29,7 @@ const FindBook = () => {
     event.preventDefault();
 
     try {
-      const { data } = await createFindBook({
+      const { data } = await saveFindBook({
         variables: { ...formData},
       });
 
