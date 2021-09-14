@@ -33,7 +33,7 @@ const FindBook = () => {
         variables: { ...formData},
       });
 
-      history.push(`/book/${data.createBook._id}`);
+      history.push(`/book/${data.saveFindBook._id}`);
     } catch (err) {
       console.error(err);
     }
