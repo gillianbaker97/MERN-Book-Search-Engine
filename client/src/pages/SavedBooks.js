@@ -3,12 +3,26 @@ import { useMutation } from '@apollo/client';
 import { useHistory } from 'react-router-dom';
 import { GET_ME } from '../utils/queries';
 import { REMOVE_BOOK } from '../utils/mutations'
+const { loading, data } = useQuery(GET_ME);
 
 
 const SavedBooks = () => {
-  const { loading, data } = useQuery(GET_ME);
-  const [userData, setUserData] = useState({});
+
+  const savedBookList = data?.savedBook || [];
   const userDataLength = Object.keys(userData).length;
+
+
+  const [userData, setUserData] = useState({
+    authors: 'JavaScript',
+    description: 'JavaScript',
+    bookId: 'JavaScript',
+    image: 'JavaScript',
+    link: 'JavaScript',
+    title: 'JavaScript'
+  });
+
+  let history = useHistory();
+  const [saveFindBook, { error }]
 
   useEffect(() => {
     const getUserData = async () => {

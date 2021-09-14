@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 //import { QUERY_BOOK } from '../utils/mutations';
-import { SAVE_BOOK} from '../utils/mutations';
+import { SAVE_BOOK } from '../utils/mutations';
 
 
 const FindBook = () => {
@@ -88,3 +88,7 @@ const FindBook = () => {
     </div>
   );
 };
+
+export default SearchBooks;
+
+fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
